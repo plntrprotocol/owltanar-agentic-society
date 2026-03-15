@@ -1,21 +1,15 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "/api/**",
+      "src": "simple-api.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "/simple-api.js"
-    },
-    {
-      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
