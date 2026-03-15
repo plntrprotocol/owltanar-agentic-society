@@ -1,21 +1,21 @@
 {
   "builds": [
     {
-      "src": "platform_server.py",
-      "use": "@vercel/python"
+      "src": "simple-api.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "platform_server.py"
+      "dest": "/simple-api.js"
     },
     {
       "src": "/(.*)",
-      "dest": "ui-updated.html"
+      "dest": "/ui-updated.html"
     }
   ],
   "env": {
-    "PYTHON_VERSION": "3.9"
+    "NODE_ENV": "production"
   }
 }
