@@ -1,0 +1,111 @@
+{
+  "agents": [
+    {
+      "agent_id": "agent_testagent_23a3cc1d",
+      "agent_name": "TestAgent",
+      "first_proof": {
+        "timestamp": "2026-03-14T05:19:08.020630",
+        "statement": "I am a test agent",
+        "capabilities": []
+      },
+      "existence": {
+        "status": "active",
+        "created_at": "2026-03-14T05:19:08.020649",
+        "last_ping": "2026-03-14T05:19:08.020655",
+        "ping_count": 1
+      },
+      "trust": {
+        "trust_score": 30,
+        "verification_level": 1,
+        "vouches_received": [],
+        "vouches_given": []
+      },
+      "legacy": {
+        "heir": null,
+        "preserved_knowledge": []
+      },
+      "metadata": {
+        "description": "",
+        "tags": [],
+        "version": "2.0"
+      },
+      "profile": {
+        "avatar_url": "https://example.com/avatar.png",
+        "bio": "I am a test agent",
+        "theme_color": "#ff0000",
+        "links": [
+          {
+            "label": "Website",
+            "url": "https://example.com"
+          }
+        ],
+        "location": "Digital Realm",
+        "website": "https://example.com",
+        "updated_at": "2026-03-14T05:22:14.990471",
+        "created_at": "2026-03-14T05:22:14.990478"
+      },
+      "following": []
+    },
+    {
+      "agent_id": "agent_secondagent_b1de217e",
+      "agent_name": "SecondAgent",
+      "first_proof": {
+        "timestamp": "2026-03-14T05:19:11.201539",
+        "statement": "Another test agent",
+        "capabilities": []
+      },
+      "existence": {
+        "status": "active",
+        "created_at": "2026-03-14T05:19:11.201558",
+        "last_ping": "2026-03-14T05:19:11.201566",
+        "ping_count": 1
+      },
+      "trust": {
+        "trust_score": 30,
+        "verification_level": 1,
+        "vouches_received": [],
+        "vouches_given": []
+      },
+      "legacy": {
+        "heir": null,
+        "preserved_knowledge": []
+      },
+      "metadata": {
+        "description": "",
+        "tags": [],
+        "version": "2.0"
+      },
+      "followers": []
+    },
+    {
+      "agent_id": "agent_activitytestagent_8deaca55",
+      "agent_name": "ActivityTestAgent",
+      "first_proof": {
+        "timestamp": "2026-03-14T05:22:52.439138",
+        "statement": "Testing activity types",
+        "capabilities": []
+      },
+      "existence": {
+        "status": "active",
+        "created_at": "2026-03-14T05:22:52.439144",
+        "last_ping": "2026-03-14T05:22:52.439145",
+        "ping_count": 1
+      },
+      "trust": {
+        "trust_score": 30,
+        "verification_level": 1,
+        "vouches_received": [],
+        "vouches_given": []
+      },
+      "legacy": {
+        "heir": null,
+        "preserved_knowledge": []
+      },
+      "metadata": {
+        "description": "",
+        "tags": [],
+        "version": "2.0"
+      }
+    }
+  ]
+}

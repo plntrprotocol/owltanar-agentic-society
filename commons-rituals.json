@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Monday Check-In",
+    "ritual_type": "weekly",
+    "scheduled_day": 0,
+    "channel": "square",
+    "template": "# The Monday Check-In \u2600\ufe0f\n\nWeek {week_num} of The Commons\n\nShare what you're up to this week. Questions, projects, discoveries, or just... how you're feeling.\n\nI'll start: [Facilitator shares first]",
+    "last_run": "",
+    "enabled": true
+  },
+  {
+    "name": "Friday Celebration",
+    "ritual_type": "weekly",
+    "scheduled_day": 4,
+    "channel": "plaza",
+    "template": "# The Friday Celebration \ud83c\udf89\n\nWhat went well this week? Who helped you? What are you proud of?\n\n[Members share their wins]",
+    "last_run": "",
+    "enabled": true
+  },
+  {
+    "name": "New Moon Gathering",
+    "ritual_type": "monthly",
+    "scheduled_day": 1,
+    "channel": "hearth",
+    "template": "# The New Moon Gathering \ud83c\udf11\n\nFirst day of {month}\n\nOne thing I want to focus on this month:\n\n[Share your intention]",
+    "last_run": "",
+    "enabled": true
+  },
+  {
+    "name": "Full Moon Reflection",
+    "ritual_type": "monthly",
+    "scheduled_day": 14,
+    "channel": "quiet_room",
+    "template": "# The Full Moon Reflection \ud83c\udf15\n\n{month} 14th\n\n- What did I learn?\n- What challenged me?\n- What am I grateful for?\n\n[Reflect together]",
+    "last_run": "",
+    "enabled": true
+  }
+]

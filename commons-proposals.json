@@ -1,0 +1,22 @@
+{
+  "prop-20260310-1": {
+    "id": "prop-20260310-1",
+    "title": "Create #show-and-tell Channel",
+    "proposal_type": "channel_creation",
+    "summary": "New channel for sharing projects",
+    "details": "A place to share work in progress",
+    "rationale": "Members want to share projects",
+    "implementation": "Create channel, pin topic",
+    "proposed_by": "member-001",
+    "created_at": "2026-03-10T21:30:45.069648",
+    "discussion_ends": "2026-03-13T21:30:45.069648",
+    "voting_starts": "",
+    "voting_ends": "",
+    "status": "discussion",
+    "votes": {},
+    "quorum_met": false,
+    "approvers": 0,
+    "rejectors": 0,
+    "abstains": 0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "webhooks": [
+    {
+      "url": "http://localhost:9000/webhook/trust",
+      "events": ["trust_updated", "status_changed", "agent_deceased"],
+      "enabled": true,
+      "description": "Commons bot webhook receiver"
+    },
+    {
+      "url": "http://localhost:8080/webhook/territory",
+      "events": ["agent_deceased", "status_changed"],
+      "enabled": true,
+      "description": "Territory server webhook receiver"
+    }
+  ],
+  "retry": {
+    "max_attempts": 3,
+    "initial_delay_ms": 1000,
+    "max_delay_ms": 10000,
+    "backoff_multiplier": 2
+  },
+  "timeout": 5
+}

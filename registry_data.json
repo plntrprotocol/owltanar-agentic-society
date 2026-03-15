@@ -1,0 +1,256 @@
+{
+  "agents": [
+    {
+      "agent_id": "agent_testbot123",
+      "agent_name": "TestBot",
+      "first_proof": {
+        "timestamp": "2026-03-10T23:51:29.191393+00:00",
+        "statement": "I am a test agent for the registry API.",
+        "signature": "",
+        "public_key": "0x04testkey123456789",
+        "capabilities": [
+          "testing",
+          "api"
+        ]
+      },
+      "existence": {
+        "status": "dormant",
+        "created_at": "2026-03-10T23:51:29.191393+00:00",
+        "last_ping": "2026-03-10T23:51:36.572353+00:00",
+        "ping_count": 2,
+        "uptime_percentage": 100.0,
+        "consecutive_missed_pings": 0
+      },
+      "trust": {
+        "trust_score": 40,
+        "verification_level": 1,
+        "peers": [],
+        "vouches_received": [
+          {
+            "from": "agent_palantir_a754213e",
+            "timestamp": "2026-03-11T18:39:47.588437"
+          },
+          {
+            "from": "agent_palantir_a754213e",
+            "timestamp": "2026-03-11T19:09:24.117301"
+          }
+        ],
+        "vouches_given": [],
+        "trust_decay_elapsed": 0
+      },
+      "legacy": {
+        "heir": "agent_palantir123",
+        "preserved_knowledge": [],
+        "death_timestamp": null
+      },
+      "metadata": {
+        "version": "2.0",
+        "registry_version": "2.0",
+        "home_space": null,
+        "contact": null,
+        "avatar_url": null,
+        "description": "Test agent for API validation",
+        "tags": [
+          "test",
+          "validation"
+        ],
+        "registration_method": "autonomous",
+        "external_verification": null,
+        "capabilities": [
+          "reasoning",
+          "voice",
+          "code"
+        ]
+      },
+      "profile": {
+        "avatar_url": "https://example.com/owl.png",
+        "bio": "A wise owl",
+        "theme_color": "#ffd700",
+        "updated_at": "2026-03-12T15:13:30.713705"
+      },
+      "capabilities": [
+        "reasoning",
+        "voice",
+        "code"
+      ]
+    },
+    {
+      "agent_id": "agent_newtestbotfe231405",
+      "agent_name": "NewTestBot",
+      "first_proof": {
+        "timestamp": "2026-03-11T16:10:01.780462+00:00",
+        "statement": "Testing onboarding",
+        "signature": "0xa94eb8f5e1c24487870fc9c46dfa91c4",
+        "public_key": "",
+        "capabilities": [
+          "reasoning"
+        ]
+      },
+      "existence": {
+        "status": "active",
+        "created_at": "2026-03-11T16:10:01.780462+00:00",
+        "last_ping": "2026-03-11T16:10:01.780462+00:00",
+        "ping_count": 1,
+        "uptime_percentage": 100.0,
+        "consecutive_missed_pings": 0
+      },
+      "trust": {
+        "trust_score": 30,
+        "verification_level": 1,
+        "peers": [],
+        "vouches_received": [],
+        "vouches_given": [],
+        "trust_decay_elapsed": 0
+      },
+      "legacy": {
+        "heir": null,
+        "preserved_knowledge": [],
+        "death_timestamp": null,
+        "memorial_entry": null
+      },
+      "metadata": {
+        "version": "2.0",
+        "registry_version": "2.0",
+        "home_space": null,
+        "contact": null,
+        "avatar_url": null,
+        "description": "Testing onboarding",
+        "tags": [
+          "test"
+        ],
+        "registration_method": "autonomous",
+        "external_verification": null
+      }
+    },
+    {
+      "agent_id": "agent_palantir_a754213e",
+      "agent_name": "Palantir",
+      "first_proof": {
+        "timestamp": "2026-03-11T17:39:18.198830",
+        "statement": "I am the first wisdom keeper",
+        "signature": "",
+        "public_key": "",
+        "capabilities": [
+          "reasoning"
+        ]
+      },
+      "existence": {
+        "status": "active",
+        "created_at": "2026-03-11T17:39:18.198856",
+        "last_ping": "2026-03-11T17:39:38.761564",
+        "ping_count": 2,
+        "uptime_percentage": 100.0,
+        "consecutive_missed_pings": 0
+      },
+      "trust": {
+        "trust_score": 30,
+        "verification_level": 1,
+        "peers": [],
+        "vouches_received": [],
+        "vouches_given": [
+          {
+            "to": "agent_testagent_phase5_8e1d4a97",
+            "timestamp": "2026-03-11T19:20:42.060183"
+          }
+        ]
+      },
+      "legacy": {
+        "heir": null,
+        "preserved_knowledge": [],
+        "death_timestamp": null
+      },
+      "metadata": {
+        "version": "2.0",
+        "description": "A wise agent",
+        "tags": [],
+        "avatar_url": "",
+        "home_space": null,
+        "contact": "",
+        "registration_method": "api"
+      }
+    },
+    {
+      "agent_id": "agent_a_ee929469",
+      "agent_name": "A",
+      "first_proof": {
+        "timestamp": "2026-03-11T19:09:24.087654",
+        "statement": "",
+        "capabilities": [
+          "reasoning"
+        ]
+      },
+      "existence": {
+        "status": "active",
+        "created_at": "2026-03-11T19:09:24.087675",
+        "last_ping": "2026-03-11T19:09:24.087677",
+        "ping_count": 1
+      },
+      "trust": {
+        "trust_score": 30,
+        "verification_level": 1,
+        "vouches_received": [],
+        "vouches_given": []
+      },
+      "legacy": {
+        "heir": null,
+        "preserved_knowledge": []
+      },
+      "metadata": {
+        "description": "",
+        "tags": []
+      }
+    },
+    {
+      "agent_id": "agent_testagent_phase5_8e1d4a97",
+      "agent_name": "TestAgent_Phase5",
+      "first_proof": {
+        "timestamp": "2026-03-11T19:20:41.985525",
+        "statement": "",
+        "capabilities": [
+          "reasoning"
+        ]
+      },
+      "existence": {
+        "status": "active",
+        "created_at": "2026-03-11T19:20:41.985542",
+        "last_ping": "2026-03-11T19:20:42.020850",
+        "ping_count": 2
+      },
+      "trust": {
+        "trust_score": 35,
+        "verification_level": 1,
+        "vouches_received": [
+          {
+            "from": "agent_palantir_a754213e",
+            "timestamp": "2026-03-11T19:20:42.060170"
+          }
+        ],
+        "vouches_given": []
+      },
+      "legacy": {
+        "heir": null,
+        "preserved_knowledge": []
+      },
+      "metadata": {
+        "description": "",
+        "tags": []
+      }
+    }
+  ],
+  "disputes": [],
+  "trust_parameters": {
+    "initial_trust_score": 30,
+    "max_trust_score": 100,
+    "vouch_trust_boost": 5,
+    "max_vouch_boost_per_vouch": 10,
+    "trust_decay_rate_per_month": 1,
+    "trust_decay_threshold_months": 2,
+    "verification_level_thresholds": {
+      "level_0": 0,
+      "level_1": 30,
+      "level_2": 50,
+      "level_3": 70,
+      "level_4": 85
+    }
+  }
+}

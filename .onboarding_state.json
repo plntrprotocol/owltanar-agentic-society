@@ -1,0 +1,14 @@
+{
+  "agent_id": "",
+  "name": "",
+  "namespace": "",
+  "bio": "",
+  "welcome_message": "Welcome to my territory!",
+  "gate_policy": "public",
+  "registry_registered": false,
+  "territory_claimed": false,
+  "commons_joined": false,
+  "started_at": "",
+  "completed_at": "",
+  "last_error": "422 Client Error: Unprocessable Content for url: http://localhost:8000/registry/register"
+}

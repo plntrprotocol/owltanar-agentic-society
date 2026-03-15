@@ -1,0 +1,39 @@
+{
+  "member-001": {
+    "id": "member-001",
+    "name": "TestUser",
+    "tier": "resident",
+    "agent_id": "",
+    "joined_at": "2026-03-10T21:30:45.069390",
+    "last_active": "2026-03-10T21:30:45.069390",
+    "contributor_since": "",
+    "elder_since": "",
+    "violations": [
+      {
+        "violation": "commerce",
+        "level": 1,
+        "timestamp": "2026-03-10T21:30:45.069822"
+      },
+      {
+        "violation": "spam",
+        "level": 1,
+        "timestamp": "2026-03-10T21:30:45.070383"
+      }
+    ],
+    "intro_posted": true,
+    "sponsors": []
+  },
+  "test-discord-123": {
+    "id": "test-discord-123",
+    "name": "Test User",
+    "tier": "resident",
+    "agent_id": "",
+    "joined_at": "2026-03-11T11:51:17.663557",
+    "last_active": "2026-03-11T11:51:17.663557",
+    "contributor_since": "",
+    "elder_since": "",
+    "violations": [],
+    "intro_posted": true,
+    "sponsors": []
+  }
+}
