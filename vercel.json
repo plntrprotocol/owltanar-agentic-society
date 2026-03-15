@@ -1,0 +1,21 @@
+{
+  "builds": [
+    {
+      "src": "platform_server.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "platform_server.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "ui-updated.html"
+    }
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.9"
+  }
+}
