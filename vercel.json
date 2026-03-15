@@ -1,8 +1,12 @@
 {
   "builds": [
     {
-      "src": "simple-api.js",
+      "src": "/api/**",
       "use": "@vercel/node"
+    },
+    {
+      "src": "/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -11,11 +15,11 @@
       "dest": "/simple-api.js"
     },
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/ui-updated.html"
+      "dest": "/index.html"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
