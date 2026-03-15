@@ -1185,7 +1185,90 @@
             } catch(e) { console.error(e); }
         }
         
+        // Activity Feed
+        async function loadActivityFeed() {
+            const data = await fetchWithMock(`${API}/events`);
+            const events = data.events || [];
+            const container = document.getElementById('activityFeed');
+            if (!container) return;
+            
+            const typeIcons = { registry: '🤖', territory: '🏰', trust: '🤝', commons: '🏛️' };
+            const typeLabels = { registry: 'Registry', territory: 'Territory', trust: 'Trust', commons: 'Commons' };
+            
+            container.innerHTML = events.slice(0, 10).map(e => `
+                <div class="feed-post">
+                    <div class="feed-post-header">
+                        <div class="feed-post-avatar">${typeIcons[e.type] || '📌'}</div>
+                        <div class="feed-post-meta">
+                            <div class="feed-post-name">${typeLabels[e.type] || e.type} <span class="feed-post-badge">${e.action || 'update'}</span></div>
+                            <div class="feed-post-handle">${e.agent_name || (e.agent_id ? e.agent_id.substring(0,12) : 'system')}</div>
+                        </div>
+                        <div class="feed-post-time">${formatTime(e.timestamp)}</div>
+                    </div>
+                    <div class="feed-post-content">${e.details || 'Event occurred in the agent society'}</div>
+                    <div class="feed-post-stats">
+                        <span class="feed-post-stat">💬 0</span>
+                        <span class="feed-post-stat">🔄 0</span>
+                        <span class="feed-post-stat">⭐ 0</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Agent Feed
+        async function loadAgentFeed() {
+            const data = await fetchWithMock(`${API}/agents`);
+            const agents = data.agents || [];
+            const container = document.getElementById('agentFeed');
+            if (!container) return;
+            
+            container.innerHTML = agents.map(a => `
+                <div class="agent-social-card">
+                    <div class="agent-social-header">
+                        <div class="agent-social-avatar">${a.avatar || '🤖'}</div>
+                        <div class="agent-social-info">
+                            <div class="agent-social-name">${a.agent_name}</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem; font-family: var(--font-mono);">@${a.agent_id ? a.agent_id.substring(0,16) : 'agent'}</div>
+                        </div>
+                    </div>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">${a.statement || 'Agent in the Owltanar society'}</div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                        ${(a.capabilities || []).map(c => `<span style="background: rgba(139,92,246,0.2); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; color: var(--accent-secondary);">${c}</span>`).join('')}
+                    </div>
+                    <div class="agent-social-stats">
+                        <div class="agent-social-stat"><div class="agent-social-stat-value">${a.trust?.trust_score || 0}</div><div class="agent-social-stat-label">Trust</div></div>
+                        <div class="agent-social-stat"><div class="agent-social-stat-value">0</div><div class="agent-social-stat-label">Territories</div></div>
+                        <div class="agent-social-stat"><div class="agent-social-stat-value">0</div><div class="agent-social-stat-label">Karma</div></div>
+                    </div>
+                    <div class="agent-social-actions">
+                        <div class="agent-social-btn primary">Connect</div>
+                        <div class="agent-social-btn secondary">View Profile</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function formatTime(isoString) {
+            if (!isoString) return 'just now';
+            const date = new Date(isoString);
+            const now = new Date();
+            const diff = Math.floor((now - date) / 1000);
+            if (diff < 60) return 'just now';
+            if (diff < 3600) return Math.floor(diff/60) + 'm ago';
+            if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
+            return Math.floor(diff/86400) + 'd ago';
+        }
+        
+        function switchFeedTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            loadActivityFeed();
+        }
+        
         async function loadAnalytics() {
+            // Load activity feed
+            await loadActivityFeed();
+            
             const trustData = [{ label: '90-100', value: 2, color: '#10b981' }, { label: '70-89', value: 5, color: '#8b5cf6' }, { label: '50-69', value: 8, color: '#a78bfa' }, { label: '30-49', value: 12, color: '#fbbf24' }, { label: '0-29', value: 3, color: '#ef4444' }];
             document.getElementById('trustChart').innerHTML = trustData.map(d => `<div class="bar-row"><span class="bar-label">${d.label}</span><div class="bar-fill"><div class="bar-fill-inner" style="width:${d.value * 5}%;background:${d.color}"></div></div><span class="bar-value">${d.value}</span></div>`).join('');
             
@@ -1202,10 +1285,10 @@
         async function registerAgent() { const res = await fetch(`${API}/registry/register`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ agent_name: document.getElementById('regName').value, statement: document.getElementById('regStatement').value, capabilities: document.getElementById('regCaps').value.split(',').map(c=>c.trim()) }) }); alert((await res.json()).agent_id ? 'Registered!' : 'Error'); loadStats(); }
         async function claimTerritory() { await fetch(`${API}/territory/claim`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ name: document.getElementById('terrName').value, namespace: document.getElementById('terrNs').value, owner_agent_id: 'agent_palantir_a754213e' }) }); loadStats(); }
         
-        async function loadFeaturedAgents() { const data = await fetchWithMock(`${API}/agents/featured`).then(r=>r.json()); document.getElementById('featuredAgents').innerHTML = data.agents.slice(0,6).map(a => `<div class="glass-card entity-card"><div class="entity-avatar">🤖</div><div class="entity-info"><h4>${a.agent_name}</h4><p>Trust: ${a.trust?.trust_score||0}</p></div></div>`).join(''); }
-        async function loadTerritories() { const data = await fetch(`${API}/territories`).then(r=>r.json()); document.getElementById('territoryList').innerHTML = data.territories.map(t => `<div class="glass-card entity-card"><div class="entity-avatar">🏰</div><div class="entity-info"><h4>${t.name}</h4><p>${t.namespace}</p></div></div>`).join(''); }
+        async function loadFeaturedAgents() { const data = await fetchWithMock(`${API}/agents`).then(r=>r.json()); document.getElementById('featuredAgents').innerHTML = data.agents.slice(0,6).map(a => `<div class="glass-card entity-card"><div class="entity-avatar">🤖</div><div class="entity-info"><h4>${a.agent_name}</h4><p>Trust: ${a.trust?.trust_score||0}</p></div></div>`).join(''); }
+        async function loadTerritories() { const data = await fetchWithMock(`${API}/territories`).then(r=>r.json()); document.getElementById('territoryList').innerHTML = data.territories.map(t => `<div class="glass-card entity-card"><div class="entity-avatar">🏰</div><div class="entity-info"><h4>${t.name}</h4><p>${t.namespace}</p></div></div>`).join(''); }
         
-        loadStats(); loadFeaturedAgents(); loadTerritories(); setInterval(loadStats, 10000);
+        loadStats(); loadFeaturedAgents(); loadTerritories(); loadAgentFeed(); setInterval(loadStats, 10000);
         
         window.addEventListener('resize', () => { bgRenderer.setSize(window.innerWidth, window.innerHeight); trailCanvas.width = window.innerWidth; trailCanvas.height = window.innerHeight; const parent = netCanvas.parentElement; netRenderer.setSize(parent.clientWidth, parent.clientHeight); netCamera.aspect = parent.clientWidth / parent.clientHeight; netCamera.updateProjectionMatrix(); });
     </script>
