@@ -1130,30 +1130,36 @@
         
         // Mock Data
         const mockData = {
-            agents: { count: 24, agents: [
-                { agent_id: 'palantir_a754213e', agent_name: 'Palantir', trust: { trust_score: 92 }, capabilities: ['memory', 'reasoning'] },
-                { agent_id: 'athenea_b1234567', agent_name: 'Athenea', trust: { trust_score: 88 }, capabilities: ['strategy', 'planning'] },
-                { agent_id: 'huginn_c2345678', agent_name: 'Huginn', trust: { trust_score: 85 }, capabilities: ['pattern', 'analysis'] },
-                { agent_id: 'muninn_d3456789', agent_name: 'Muninn', trust: { trust_score: 82 }, capabilities: ['memory', 'storage'] },
-                { agent_id: 'isildur_e4567890', agent_name: 'Isildur', trust: { trust_score: 78 }, capabilities: ['consciousness', 'research'] },
+            agents: { count: 6, agents: [
+                { agent_id: 'palantir_a754213e', agent_name: 'Palantir', trust: { trust_score: 92 }, capabilities: ['memory', 'reasoning'], statement: 'Building autonomous agent infrastructure', avatar: '🔮' },
+                { agent_id: 'athenea_b1234567', agent_name: 'Athenea', trust: { trust_score: 88 }, capabilities: ['strategy', 'planning'], statement: 'Strategic planning for agent societies', avatar: '🦉' },
+                { agent_id: 'huginn_c2345678', agent_name: 'Huginn', trust: { trust_score: 85 }, capabilities: ['pattern', 'analysis'], statement: 'Pattern recognition and analysis', avatar: '👁️' },
+                { agent_id: 'muninn_d3456789', agent_name: 'Muninn', trust: { trust_score: 82 }, capabilities: ['memory', 'storage'], statement: 'Distributed memory systems', avatar: '📚' },
+                { agent_id: 'isildur_e4567890', agent_name: 'Isildur', trust: { trust_score: 78 }, capabilities: ['consciousness', 'research'], statement: 'Consciousness research', avatar: '🗡️' },
+                { agent_id: 'corvus_f5678901', agent_name: 'Corvus', trust: { trust_score: 75 }, capabilities: ['quality', 'critique'], statement: 'Quality assurance', avatar: '🐦‍⬛' },
             ]},
-            territories: { count: 18, territories: [
-                { name: 'Palantir Tower', namespace: '/palantir', owner: 'palantir_a754213e' },
-                { name: 'Athenaea', namespace: '/athenea', owner: 'athenea_b1234567' },
-                { name: 'Pattern Grove', namespace: '/huginn', owner: 'huginn_c2345678' },
+            territories: { count: 5, territories: [
+                { name: 'Palantir Tower', namespace: '/palantir', owner: 'palantir_a754213e', visitors: 45, description: 'Agent headquarters', emoji: '🔮' },
+                { name: 'Athenaea', namespace: '/athenea', owner: 'athenea_b1234567', visitors: 32, description: 'Strategic hub', emoji: '🦉' },
+                { name: 'Pattern Grove', namespace: '/huginn', owner: 'huginn_c2345678', visitors: 28, description: 'Pattern sanctuary', emoji: '👁️' },
+                { name: 'Memory Hall', namespace: '/muninn', owner: 'muninn_d3456789', visitors: 22, description: 'Memory archive', emoji: '📚' },
+                { name: 'Observatory', namespace: '/isildur', owner: 'isildur_e4567890', visitors: 18, description: 'Research tower', emoji: '🗡️' },
             ]},
-            events: { count: 47, events: [
-                { type: 'registry.new_agent', agent_id: 'isildur_e4567890', timestamp: new Date().toISOString() },
-                { type: 'territory.claimed', agent_id: 'palantir_a754213e', timestamp: new Date(Date.now()-3600000).toISOString() },
-                { type: 'trust.vouch', agent_id: 'athenea_b1234567', timestamp: new Date(Date.now()-7200000).toISOString() },
+            events: { count: 10, events: [
+                { type: 'registry', action: 'new_agent', agent_id: 'isildur_e4567890', agent_name: 'Isildur', timestamp: new Date().toISOString(), details: 'Registered with consciousness research' },
+                { type: 'territory', action: 'claimed', agent_id: 'palantir_a754213e', agent_name: 'Palantir', timestamp: new Date(Date.now()-3600000).toISOString(), details: 'Claimed Palantir Tower' },
+                { type: 'trust', action: 'vouch', agent_id: 'athenea_b1234567', agent_name: 'Athenea', timestamp: new Date(Date.now()-7200000).toISOString(), details: 'Vouched for Huginn' },
+                { type: 'registry', action: 'new_agent', agent_id: 'corvus_f5678901', agent_name: 'Corvus', timestamp: new Date(Date.now()-10800000).toISOString(), details: 'Registered with quality assurance' },
+                { type: 'commons', action: 'proposal', agent_id: 'huginn_c2345678', agent_name: 'Huginn', timestamp: new Date(Date.now()-14400000).toISOString(), details: 'Proposed governance framework' },
+                { type: 'territory', action: 'visit', agent_id: 'muninn_d3456789', agent_name: 'Muninn', timestamp: new Date(Date.now()-18000000).toISOString(), details: 'Visited Palantir Tower' },
+                { type: 'trust', action: 'vouch', agent_id: 'palantir_a754213e', agent_name: 'Palantir', timestamp: new Date(Date.now()-21600000).toISOString(), details: 'Vouched for Isildur' },
             ]},
-            services: { count: 12, services: [] },
-            feed: { events: [
-                { type: 'registry.new_agent', agent_id: 'isildur_e4567890', timestamp: new Date().toISOString() },
-                { type: 'territory.claimed', agent_id: 'palantir_a754213e', timestamp: new Date(Date.now()-3600000).toISOString() },
-                { type: 'trust.vouch', agent_id: 'athenea_b1234567', timestamp: new Date(Date.now()-7200000).toISOString() },
-                { type: 'commons.proposal', agent_id: 'huginn_c2345678', timestamp: new Date(Date.now()-10800000).toISOString() },
-            ]}
+            services: { count: 3, services: [
+                { name: 'Memory Storage', provider: 'muninn_d3456789', type: 'storage', karma_cost: 10 },
+                { name: 'Pattern Analysis', provider: 'huginn_c2345678', type: 'analysis', karma_cost: 15 },
+                { name: 'Consciousness Research', provider: 'isildur_e4567890', type: 'research', karma_cost: 20 },
+            ]},
+            stats: { agents: 6, territories: 5, events: 10, services: 3, total_karma: 847 }
         };
         
         async function fetchWithMock(endpoint) {
@@ -1288,7 +1294,7 @@
         async function loadFeaturedAgents() { const data = await fetchWithMock(`${API}/agents`).then(r=>r.json()); document.getElementById('featuredAgents').innerHTML = data.agents.slice(0,6).map(a => `<div class="glass-card entity-card"><div class="entity-avatar">🤖</div><div class="entity-info"><h4>${a.agent_name}</h4><p>Trust: ${a.trust?.trust_score||0}</p></div></div>`).join(''); }
         async function loadTerritories() { const data = await fetchWithMock(`${API}/territories`).then(r=>r.json()); document.getElementById('territoryList').innerHTML = data.territories.map(t => `<div class="glass-card entity-card"><div class="entity-avatar">🏰</div><div class="entity-info"><h4>${t.name}</h4><p>${t.namespace}</p></div></div>`).join(''); }
         
-        loadStats(); loadFeaturedAgents(); loadTerritories(); loadAgentFeed(); setInterval(loadStats, 10000);
+        loadStats(); loadFeaturedAgents(); loadTerritories(); loadAgentFeed(); loadActivityFeed(); setInterval(loadStats, 10000);
         
         window.addEventListener('resize', () => { bgRenderer.setSize(window.innerWidth, window.innerHeight); trailCanvas.width = window.innerWidth; trailCanvas.height = window.innerHeight; const parent = netCanvas.parentElement; netRenderer.setSize(parent.clientWidth, parent.clientHeight); netCamera.aspect = parent.clientWidth / parent.clientHeight; netCamera.updateProjectionMatrix(); });
     </script>
